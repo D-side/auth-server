@@ -1,14 +1,15 @@
 doctype html
 html
-head
-  title Auth Server
-  = stylesheet_link_tag    'application', media: 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
+  head
+    title Auth Server
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
 
-body
-  .container
-    = render 'layouts/alerts'
-    = yield
+  body
+    .container
+      h1 Auth server
+      = render 'layouts/alerts'
+      = yield
 
-  /= console if Rails.env.development?
+    /= console if Rails.env.development?

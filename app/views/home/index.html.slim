@@ -1,10 +1,15 @@
-h1 Auth center
-p
-  - if user_signed_in?
-    | Logged in as #{current_user.name}
-    hr/
-    = link_to "Log out", logout_path, method: :delete
-  - else
-    i= "You are not logged in"
-    hr/
-    = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+.panel.panel-default
+  .panel-heading
+    = link_to "Known applications", oauth_applications_path, class: "btn btn-default"
+    - if user_signed_in?
+      = link_to "Authorized applications", oauth_applications_path, class: "btn btn-default"
+  .panel-body
+    - if user_signed_in?
+      | Logged in as #{current_user.name}
+    - else
+      i= "You are not logged in"
+  .panel-footer
+    - if user_signed_in?
+      = link_to "Log out", logout_path, method: :delete
+    - else
+      = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
