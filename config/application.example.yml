@@ -1,0 +1,4 @@
+# Copy this file to `config/application.yml` and fill it in
+
+facebook_app_id: "FILL THIS IN"
+facebook_app_secret: "FILL THIS IN"
