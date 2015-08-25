@@ -18,5 +18,6 @@ or any other OAuth2 client implementation.
 
 ## When it's finally running...
 
-You'll need to register a client. Yes, I know, for a ton of websites, but it's
-our own database, we can do whatever we want.
+You'll need to register a client and get its `id` and `secret`.
+
+**Known applications** should give you the list and CRUD buttons to do that.
