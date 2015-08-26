@@ -4,7 +4,7 @@ class AuthenticationController < Devise::OmniauthCallbacksController
 
     sign_in(@user)
 
-    redirect_to root_path
+    redirect_to return_path
   end
 
   def logout
@@ -13,7 +13,12 @@ class AuthenticationController < Devise::OmniauthCallbacksController
 
   protected
 
+  # Overrided
   def after_omniauth_failure_path_for(_)
-    root_path
+    return_path
+  end
+
+  def return_path
+    session.delete(:guest_return_url) || root_path
   end
 end

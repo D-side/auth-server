@@ -4,7 +4,10 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-    current_user || redirect_to(user_omniauth_authorize_path(:facebook))
+    current_user || begin
+      session[:guest_return_url] = request.fullpath
+      redirect_to(user_omniauth_authorize_path(:facebook))
+    end
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
